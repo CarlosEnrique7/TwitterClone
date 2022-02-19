@@ -2,7 +2,7 @@
 
 **Twitter Clone** is a basic twitter app to read your tweets.
 
-Time spent: **X** hours spent in total
+Time spent: **5** hours spent in total
 
 ## User Stories
 
@@ -17,11 +17,12 @@ The following **required** functionality is completed:
 The following **bonus** features are implemented:
 
 - [X] User can pull to refresh. (1pt)
-- [ ] User can load past tweets infinitely. (2pts)
+- [X] User can load past tweets infinitely. (2pts)
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+https://user-images.githubusercontent.com/75550025/154779345-33e2e72d-7d5f-40a7-85f2-a98184588784.mp4
+
 
