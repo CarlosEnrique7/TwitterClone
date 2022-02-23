@@ -19,16 +19,21 @@ class HomeTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print(self.tweetArr)
-        loadTweet()
 
         myRefreshControl.addTarget(self, action: #selector(loadTweet), for: .valueChanged)
         tableView.refreshControl = myRefreshControl
+        self.tableView.rowHeight = UITableView.automaticDimension
+        self.tableView.estimatedRowHeight = 150
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.loadTweet()
     }
     
     
-    
     @objc func loadTweet() {
-        numberOfTweets = 20
+        numberOfTweets = 10
         let myUrl = "https://api.twitter.com/1.1/statuses/home_timeline.json"
         let myParams = ["count": numberOfTweets]
         
@@ -51,7 +56,7 @@ class HomeTableViewController: UITableViewController {
     
     func loadMoreTweets() {
         let myUrl = "https://api.twitter.com/1.1/statuses/home_timeline.json"
-        numberOfTweets = numberOfTweets + 20
+        numberOfTweets = numberOfTweets + 10
         let myParams = ["count": numberOfTweets]
         
         TwitterAPICaller.client?.getDictionariesRequest(url: myUrl, parameters: myParams, success: { (tweets: [NSDictionary]) in
@@ -105,6 +110,10 @@ class HomeTableViewController: UITableViewController {
         if let imageData = data {
             cell.profileImage.image = UIImage(data: imageData)
         }
+        
+        cell.setFavorite(tweetArr[indexPath.row]["favorited"] as! Bool)
+        cell.tweetId = tweetArr[indexPath.row]["id"] as! Int
+        cell.setRetweeted(tweetArr[indexPath.row]["retweeted"] as! Bool)
         
         return cell
     }
