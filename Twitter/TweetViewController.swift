@@ -8,14 +8,21 @@
 
 import UIKit
 
-class TweetViewController: UIViewController {
+class TweetViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var tweetText: UITextView!
+    @IBOutlet weak var tweetCount: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tweetText.becomeFirstResponder()
 
+        tweetText.delegate = self
         // Do any additional setup after loading the view.
+        
+    }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        tweetCount.text = "\(tweetText.text.count)"
     }
     
     @IBAction func cancel(_ sender: Any) {
@@ -33,6 +40,16 @@ class TweetViewController: UIViewController {
         } else {
             dismiss(animated: true, completion: nil)
         }
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+            return self.textLimit(existingText: textView.text, newText: text, limit: 280)
+    }
+            
+    private func textLimit(existingText: String?, newText: String, limit: Int) -> Bool {
+        let text = existingText ?? ""
+        let isAtLimit = text.count + newText.count <= limit
+        return isAtLimit
     }
     /*
     // MARK: - Navigation

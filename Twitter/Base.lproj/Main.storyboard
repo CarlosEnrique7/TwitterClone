@@ -176,6 +176,12 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RgT-EP-4eH">
+                                <rect key="frame" x="348" y="197" width="11" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="r4H-e7-4Ae"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -183,6 +189,8 @@
                             <constraint firstItem="r5i-KF-FSp" firstAttribute="top" secondItem="r4H-e7-4Ae" secondAttribute="top" id="AVb-2k-jHX"/>
                             <constraint firstItem="r4H-e7-4Ae" firstAttribute="trailing" secondItem="r5i-KF-FSp" secondAttribute="trailing" constant="8" id="CY4-p0-dX8"/>
                             <constraint firstItem="r5i-KF-FSp" firstAttribute="leading" secondItem="r4H-e7-4Ae" secondAttribute="leading" constant="8" id="JBb-fW-bVc"/>
+                            <constraint firstItem="r4H-e7-4Ae" firstAttribute="trailing" secondItem="RgT-EP-4eH" secondAttribute="trailing" constant="16" id="jbq-Mb-fSd"/>
+                            <constraint firstItem="RgT-EP-4eH" firstAttribute="top" secondItem="r5i-KF-FSp" secondAttribute="bottom" constant="8" id="nnm-l6-NxY"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="i7n-sx-hbf">
@@ -200,6 +208,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="tweetCount" destination="RgT-EP-4eH" id="yJL-6C-2ce"/>
                         <outlet property="tweetText" destination="r5i-KF-FSp" id="Oap-Ms-BFt"/>
                     </connections>
                 </viewController>
